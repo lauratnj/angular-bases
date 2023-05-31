@@ -1,0 +1,24 @@
+<h1>{{ name }}</h1>
+
+<dl> <!-- Definition list -->
+  <td>Nombre:</td> <!-- Table description -->
+  <dd> {{ name }}</dd> <!-- Description -->
+
+  <td>Edad:</td>
+  <dd> {{ age }}</dd>
+
+  <td>Método:</td>
+  <dd> {{ getHeroDescription() }}</dd> <!-- Aquí fijarse porque ha llamado a la función del método-->
+
+  <td>Capitalizado:</td>
+  <dd> {{ capitalizedName }}</dd>
+
+</dl>
+
+<!-- *ngIf="expression" es una directiva incluida que sirve para remover o crear una parte del DOM basado en la expresión "showSection". Ej- <section *ngIf="showSection"> En nuestro ejemplo le dice que lo muestre si el nombre o la edad son diferentes de Spiderman y de 34-->
+
+<button *ngIf="name !== 'Spiderman'" (click)="changeHero()" class="btn btn-primary mx-2" >Cambiar nombre</button>
+
+<button *ngIf="age !== 34" (click)="changeAge()" class="btn btn-primary mx-2" >Cambiar edad</button>
+
+<button (click)="resetHero()" class="btn btn-secondary mx-2" >Reset heroe</button>

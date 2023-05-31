@@ -1,0 +1,25 @@
+<h3>Listado de Héroes</h3>
+
+<!-- EJEMPLO ngIg-else -->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+<h3>El héroe borrado ha sido:<small class="text-danger"> {{ deletedHero }} </small> </h3>
+</div>
+
+
+<!-- Para poner referencias internas utilizamos #. Esto nos ha servico para la parte del *ngIf-else por ejemplo. De esa manera referenciamos en el nuestro ng template-->
+
+<!-- ng template mno construtye nada, sirve para mostrar contenido. El template depende de que le digas como y cuando va a mostrarse-->
+
+<ng-template #nothingWasDeleted>
+<h3>No ha borrado nada.</h3>
+</ng-template>
+
+<button *ngIf="heroNames.length > 0" (click)="removeLastHero()" class="btn btn-outline-danger">Borrar último héroe</button>
+
+
+<!-- *ngFor sirve para comvertir <li> en un template, y lo usa para duplicarlo basado en la cantidad de elementos dentro de la lista. Ej- *ngFor="let name of list"-->
+
+<ul class="mt-2 list-group"> <!-- Unnorder list -->
+  <li *ngFor="let name of heroNames" class="list-group-item">{{ name }}</li> <!-- List item -->
+
+</ul>
