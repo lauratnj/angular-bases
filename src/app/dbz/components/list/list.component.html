@@ -1,0 +1,35 @@
+<h4>Listado</h4>
+
+<!-- let i = index sirve para extraer el índice de nuestro ngFor bajo una variable local i,  let isFirt es para indicarnos si es verdadeero cuando es el primero, isLAst es para indicar verdadero si es el último , isEven es para indicar verdadero si es par y isOdd es para si es impar  -->
+
+<ul class="list-group">
+  <li *ngFor="
+  let character of characterList;
+  let i = index;
+  let isFirst = first;
+  let isLast = last;
+  let isEven = even;
+  let isOdd = odd;
+  "
+  class="list-group-item d-flex justify-content-between align-items-center"
+  [ngClass]="{
+    'list-group-item-dark': isLast,
+    'list-group-item-primary': isEven,
+  }">
+
+  <div>
+    <span class="text-primary"> {{ i + 1 }}. </span>
+    <span>{{ character.name }} - </span>
+    <strong> Power: </strong>
+    <span>{{ character.power }}</span>
+  </div>
+
+  <button class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
+
+  <!-- <span> Es el primero: {{ isFirst }} | </span> -->
+  <!-- <span> Es el último: {{ isLast }} </span> -->
+  <!-- <span> - Es par: {{ isEven }} </span> -->
+  <!-- <span> - Es impar: {{ isOdd }} </span> -->
+
+  </li>
+</ul>
